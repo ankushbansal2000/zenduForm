@@ -1,0 +1,60 @@
+<div class="w-full min-w-[100%] border flex flex-wrap md:flex-nowrap gap-6 rounded px-4 py-4 justify-between" *ngIf="cardDetail">
+<div>
+    <div class="font-bold text-[18px]">
+        {{cardDetail.title}}
+    </div>
+    <div class="flex mt-2 gap-2">
+        <span class="text-[#B8B9BC] text-base">
+            From:
+        </span>
+        <span class="text-base text-[#060C1B]">
+            {{cardDetail.fromEmail}}
+        </span>
+    </div>
+    <div class="flex mt-2 gap-2">
+        <span class="text-[#B8B9BC] text-base">
+            To:
+        </span>
+        <span class="text-base text-[#060C1B]">
+            {{cardDetail.toEmail}}
+        </span>
+    </div>
+    <div class="flex mt-2 gap-2">
+        <span class="text-[#B8B9BC] text-base">
+            Due Date:
+        </span>
+        <span class="text-base text-[#FF3D00] font-medium">
+            {{cardDetail.dueDate}}
+        </span>
+    </div>
+</div>
+<div>
+    <!-- status -->
+    <div class="flex gap-2 items-center border px-4 py-2 rounded"
+    [ngStyle]="{'color': 
+    cardDetail.status == SubmissionStatus.Uncompete ? '#FF3D00' :
+    cardDetail.status == SubmissionStatus.LowRisk ? '#53D86A' :
+    cardDetail.status == SubmissionStatus.NeedsReview ? '#B8B9BC' :
+     '', 'border' : 
+     cardDetail.status == SubmissionStatus.Uncompete ? '1px solid #FF3D00' :
+    cardDetail.status == SubmissionStatus.LowRisk ? '1px solid #53D86A' :
+    cardDetail.status == SubmissionStatus.NeedsReview ? '1px solid #B8B9BC' :
+     ''
+     , 'background-color' : 
+     cardDetail.status == SubmissionStatus.Uncompete ? 'rgb(255 61 0 / 10%)' :
+    cardDetail.status == SubmissionStatus.LowRisk ? 'rgb(83 216 106 / 10%)' :
+    cardDetail.status == SubmissionStatus.NeedsReview ? 'rgb(184 185 188 / 10%)' :
+     ''
+      }">
+        <div class="rounded-[50%] w-[10px] h-[10px]"
+        [ngStyle]="{'background-color': 
+        cardDetail.status == SubmissionStatus.Uncompete ? '#FF3D00' :
+        cardDetail.status == SubmissionStatus.LowRisk ? '#53D86A' :
+        cardDetail.status == SubmissionStatus.NeedsReview ? '#B8B9BC' :
+         ''
+          }"
+        ></div>
+        <span class="text-sm">{{cardDetail.status}}</span>
+    </div>
+</div>
+</div>

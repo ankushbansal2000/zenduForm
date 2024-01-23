@@ -1,0 +1,71 @@
+<div class="pl-6 pb-10 mt-10">
+  <div class="text-3xl font-bold">
+    Submissions
+  </div>
+
+
+  <form class="flex mt-8 justify-between pr-6 items-center flex-wrap md:flex-nowrap" [formGroup]="searchForm">
+    <div class="flex gap-2 md:gap-8 flex-wrap md:flex-nowrap">
+
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search..." formControlName="searchTerm" (input)="onSearch()" />
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-select placeholder="Select Form" formControlName="form">
+          <mat-option value="Very important">Very important</mat-option>
+          <mat-option value="important">Important</mat-option>
+          <mat-option value="Somewhat important">Somewhat important</mat-option>
+          <mat-option value="Not important">Not important</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="w-full">
+        <mat-select placeholder="Select Status" formControlName="status">
+          <mat-option value="Very important">Very important</mat-option>
+          <mat-option value="important">Important</mat-option>
+          <mat-option value="Somewhat important">Somewhat important</mat-option>
+          <mat-option value="Not important">Not important</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+
+      <mat-form-field class="datepicker example-full-width" (click)="picker.open()">
+        <mat-label>MM/DD/YYYY</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <!-- <button mat-raised-button (click)="picker.open()">Open</button> -->
+
+
+    </div>
+    <div class="flex items-center gap-8">
+
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="Map">
+        <mat-button-toggle value="Map" (change)="onToogleChange($event.value)">Map</mat-button-toggle>
+        <mat-button-toggle value="List" (change)="onToogleChange($event.value)">List</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <div class="flex gap-2 cursor-pointer text-[#2188D9]" (click)="download()">
+        <mat-icon mat-list-icon svgIcon="export-icon" aria-hidden="false"></mat-icon>
+        <span class="text-base">Export</span>
+      </div>
+
+
+    </div>
+  </form>
+
+  <div class="w-full flex gap-6 mt-4 flex-wrap md:flex-nowrap">
+    <div class="w-full md:w-[35%] gap-2 flex flex-wrap">
+      <div class="card gap-2 w-full" *ngFor="let i of submissionList">
+        <app-submission-card [cardDetail]="i"></app-submission-card>
+      </div>
+    </div>
+    <div class="w-full md:w-[65%]">
+      <app-submission-map></app-submission-map>
+    </div>
+  </div>
+</div>

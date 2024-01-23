@@ -1,0 +1,34 @@
+
+.mat-button-toggle-checked {
+    background-color: #2188D9;
+    color: #fff;
+}
+::ng-deep.mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex {
+    border: 1px solid #B8B9BC !important;
+    border-radius: 4px !important;
+    padding: 5px 10px !important;
+}
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 0px !important;
+}
+::ng-deep.mat-form-field-infix {
+    border-top: none !important;
+}
+
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field-label span {
+    background-color: #fff !important;
+}
+
+::ng-deep .mat-form-field-empty.mat-form-field-label, .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    margin-top: 1px !important;
+}
+
+::ng-deep .datepicker .mat-form-field-flex {
+    border: 1px solid #B8B9BC !important;
+    border-radius: 4px !important;
+    padding: 5px 10px !important;
+}
+::ng-deep .datepicker .mat-form-field-label mat-label {
+    background-color: #fff !important;
+}
+// .mat-form-field-appearance-legacy .mat-form-field-label
